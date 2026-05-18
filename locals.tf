@@ -1,4 +1,3 @@
-
 locals {
   argocd_version  = yamldecode(file("${path.module}/chart-version.yaml")).appVersion
   argocd_hostname = "argocd.${var.subdomain != "" ? "${trimprefix(var.subdomain, ".")}." : ""}${var.base_domain}"
@@ -141,7 +140,7 @@ locals {
           EOT
         })
         params = {
-          "server.insecure" = true # We terminate the SSL connection at the Traefik Ingress Controller
+          "server.insecure" = true # We terminate the SSL connection at the Istio Gateway
         }
         rbac = {
           scopes           = var.rbac.scopes
@@ -150,9 +149,9 @@ locals {
         }
         secret = {
           extra = merge({
-            "accounts.pipeline.tokens"  = "${replace(var.accounts_pipeline_tokens, "\\\"", "\"")}"
-            "server.secretkey"          = "${replace(var.server_secretkey, "\\\"", "\"")}"
-            "oidc.default.clientSecret" = "${replace(var.oidc.clientSecret, "\\\"", "\"")}"
+            "accounts.pipeline.tokens"  = "${replace(var.accounts_pipeline_tokens, "\\\"", "\"") }"
+            "server.secretkey"          = "${replace(var.server_secretkey, "\\\"", "\"") }"
+            "oidc.default.clientSecret" = "${replace(var.oidc.clientSecret, "\\\"", "\"") }"
           }, local.extra_accounts_tokens)
         }
         }, var.ssh_known_hosts != null ? {
@@ -218,21 +217,7 @@ locals {
           limits   = { for k, v in var.resources.server.limits : k => v if v != null }
         }
         ingress = {
-          enabled = true
-          annotations = {
-            "cert-manager.io/cluster-issuer"                   = "${var.cluster_issuer}"
-            "traefik.ingress.kubernetes.io/router.entrypoints" = "websecure"
-            "traefik.ingress.kubernetes.io/router.tls"         = "true"
-          }
-          hostname = local.argocd_hostname
-          extraTls = [
-            {
-              hosts = [
-                local.argocd_hostname
-              ]
-              secretName = "argocd-tls"
-            }
-          ]
+          enabled = false
         }
         metrics = {
           enabled = var.enable_service_monitor
@@ -257,6 +242,15 @@ locals {
       redis-ha = {
         enabled = var.high_availability.enabled
       }
+    }
+  }]
+
+  helm_values_httproute = [{
+    httproute = {
+      enabled           = true
+      host              = local.argocd_hostname
+      gateway_name      = var.gateway_name
+      gateway_namespace = var.gateway_namespace
     }
   }]
 }

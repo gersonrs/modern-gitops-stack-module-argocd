@@ -40,7 +40,7 @@ variable "destination_cluster" {
 variable "target_revision" {
   description = "Override of target revision of the application chart."
   type        = string
-  default     = "v4.1.0" # x-release-please-version
+  default     = "v3.0.0" # x-release-please-version
 }
 
 variable "enable_service_monitor" {
@@ -348,6 +348,18 @@ variable "extra_accounts" {
 #######################
 ## Extras variables
 #######################
+
+variable "gateway_name" {
+  description = "Name of the Istio Gateway resource to attach the HTTPRoute to."
+  type        = string
+  default     = "istio-gateway"
+}
+
+variable "gateway_namespace" {
+  description = "Namespace of the Istio Gateway resource."
+  type        = string
+  default     = "istio-ingress"
+}
 
 variable "argocd_namespace" {
   description = "Namespace used by Argo CD where the Application and AppProject resources should be created."
