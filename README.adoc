@@ -229,9 +229,9 @@ The following providers are used by this module:
 
 - [[provider_random]] <<provider_random,random>> (3.8.0)
 
-- [[provider_utils]] <<provider_utils,utils>> (1.31.0)
-
 - [[provider_argocd]] <<provider_argocd,argocd>> (7.12.5)
+
+- [[provider_utils]] <<provider_utils,utils>> (1.31.0)
 
 - [[provider_null]] <<provider_null,null>> (3.2.4)
 
@@ -318,7 +318,7 @@ Description: Override of target revision of the application chart.
 
 Type: `string`
 
-Default: `"v4.1.0"`
+Default: `"v4.2.0"`
 
 ==== [[input_enable_service_monitor]] <<input_enable_service_monitor,enable_service_monitor>>
 
@@ -650,6 +650,22 @@ Type: `list(string)`
 
 Default: `[]`
 
+==== [[input_gateway_name]] <<input_gateway_name,gateway_name>>
+
+Description: Name of the Istio Gateway resource to attach the HTTPRoute to.
+
+Type: `string`
+
+Default: `"istio-gateway"`
+
+==== [[input_gateway_namespace]] <<input_gateway_namespace,gateway_namespace>>
+
+Description: Namespace of the Istio Gateway resource.
+
+Type: `string`
+
+Default: `"istio-ingress"`
+
 ==== [[input_argocd_namespace]] <<input_argocd_namespace,argocd_namespace>>
 
 Description: Namespace used by Argo CD where the Application and AppProject resources should be created.
@@ -772,7 +788,7 @@ Description: Map of extra accounts that were created and their tokens.
 |[[input_target_revision]] <<input_target_revision,target_revision>>
 |Override of target revision of the application chart.
 |`string`
-|`"v4.1.0"`
+|`"v4.2.0"`
 |no
 
 |[[input_enable_service_monitor]] <<input_enable_service_monitor,enable_service_monitor>>
@@ -1102,6 +1118,18 @@ IMPORTANT: If you set this variable, the default known hosts will be overridden 
 |List of accounts for which tokens will be generated.
 |`list(string)`
 |`[]`
+|no
+
+|[[input_gateway_name]] <<input_gateway_name,gateway_name>>
+|Name of the Istio Gateway resource to attach the HTTPRoute to.
+|`string`
+|`"istio-gateway"`
+|no
+
+|[[input_gateway_namespace]] <<input_gateway_namespace,gateway_namespace>>
+|Namespace of the Istio Gateway resource.
+|`string`
+|`"istio-ingress"`
 |no
 
 |[[input_argocd_namespace]] <<input_argocd_namespace,argocd_namespace>>
