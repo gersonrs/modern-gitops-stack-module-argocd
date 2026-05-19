@@ -1,0 +1,20 @@
+{{- $httproute := (.Values.httproute | default dict) }}
+{{- if ($httproute.enabled | default false) }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  parentRefs:
+    - name: {{ $httproute.gateway_name | default "istio-gateway" }}
+      namespace: {{ $httproute.gateway_namespace | default "istio-ingress" }}
+      sectionName: https
+  hostnames:
+    - {{ $httproute.host | quote }}
+  rules:
+    - backendRefs:
+        - name: argocd-server
+          port: 80
+{{- end }}

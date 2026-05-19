@@ -141,7 +141,7 @@ locals {
           EOT
         })
         params = {
-          "server.insecure" = true # We terminate the SSL connection at the Traefik Ingress Controller
+          "server.insecure" = true # We terminate the SSL connection at the Istio Gateway
         }
         rbac = {
           scopes           = var.rbac.scopes
@@ -218,21 +218,7 @@ locals {
           limits   = { for k, v in var.resources.server.limits : k => v if v != null }
         }
         ingress = {
-          enabled = true
-          annotations = {
-            "cert-manager.io/cluster-issuer"                   = "${var.cluster_issuer}"
-            "traefik.ingress.kubernetes.io/router.entrypoints" = "websecure"
-            "traefik.ingress.kubernetes.io/router.tls"         = "true"
-          }
-          hostname = local.argocd_hostname
-          extraTls = [
-            {
-              hosts = [
-                local.argocd_hostname
-              ]
-              secretName = "argocd-tls"
-            }
-          ]
+          enabled = false
         }
         metrics = {
           enabled = var.enable_service_monitor
@@ -257,6 +243,15 @@ locals {
       redis-ha = {
         enabled = var.high_availability.enabled
       }
+    }
+  }]
+
+  helm_values_httproute = [{
+    httproute = {
+      enabled           = true
+      host              = local.argocd_hostname
+      gateway_name      = var.gateway_name
+      gateway_namespace = var.gateway_namespace
     }
   }]
 }
