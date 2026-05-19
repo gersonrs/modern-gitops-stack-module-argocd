@@ -349,6 +349,18 @@ variable "extra_accounts" {
 ## Extras variables
 #######################
 
+variable "gateway_name" {
+  description = "Name of the Istio Gateway resource to attach the HTTPRoute to."
+  type        = string
+  default     = "istio-gateway"
+}
+
+variable "gateway_namespace" {
+  description = "Namespace of the Istio Gateway resource."
+  type        = string
+  default     = "istio-ingress"
+}
+
 variable "argocd_namespace" {
   description = "Namespace used by Argo CD where the Application and AppProject resources should be created."
   type        = string

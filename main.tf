@@ -47,7 +47,7 @@ resource "argocd_project" "this" {
 }
 
 data "utils_deep_merge_yaml" "values" {
-  input       = [for i in concat(local.helm_values, var.helm_values) : yamlencode(i)]
+  input       = [for i in concat(local.helm_values, local.helm_values_httproute, var.helm_values) : yamlencode(i)]
   append_list = true
 }
 
@@ -83,26 +83,16 @@ resource "argocd_application" "this" {
     }
 
     sync_policy {
-      dynamic "automated" {
-        for_each = toset(var.app_autosync == { "allow_empty" = tobool(null), "prune" = tobool(null), "self_heal" = tobool(null) } ? [] : [var.app_autosync])
-        content {
-          prune       = automated.value.prune
-          self_heal   = automated.value.self_heal
-          allow_empty = automated.value.allow_empty
-        }
+      automated {
+        prune       = false
+        self_heal   = false
+        allow_empty = false
       }
-
-      retry {
-        backoff {
-          duration     = "20s"
-          max_duration = "2m"
-          factor       = "2"
-        }
-        limit = "5"
-      }
-
       sync_options = [
-        "CreateNamespace=true"
+        "CreateNamespace=true",
+        "Prune=false",
+        "SelfHeal=false",
+        "ApplyOutOfSyncOnly=true"
       ]
     }
   }
