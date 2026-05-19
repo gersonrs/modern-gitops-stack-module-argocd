@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v4.1.0...v4.2.0) (2026-05-19)
+
+
+### 🚀 New Features
+
+* migrate from Traefik Ingress to Istio HTTPRoute and fix sync policy ([9fc07e7](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/9fc07e74a40dc2f3b77e829a8ec1f0cf8d1bd30f))
+* migrate from Traefik Ingress to Istio HTTPRoute and fix sync policy ([28ebda2](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/28ebda2bbb48bee496c84ac7979cf4e0fb15a7c4))
+
 ## [4.1.0](https://github.com/GersonRS/modern-gitops-stack-module-argocd/compare/v4.0.0...v4.1.0) (2026-01-26)
 
 
