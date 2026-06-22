@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: "Check out the repository"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: "Upgrade Helm chart dependencies"
         id: deps-update
@@ -132,7 +132,7 @@ jobs:
 
     steps:
       - name: "Check out the repository"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: "Upgrade Helm chart dependencies"
         id: deps-update
