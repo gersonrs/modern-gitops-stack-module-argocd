@@ -83,6 +83,13 @@ resource "argocd_application" "this" {
     }
 
     sync_policy {
+
+      dynamic "managed_namespace_metadata" {
+        for_each = length(var.namespace_labels) > 0 ? [var.namespace_labels] : []
+        content {
+          labels = managed_namespace_metadata.value
+        }
+      }
       automated {
         prune       = false
         self_heal   = false
