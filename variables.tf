@@ -80,6 +80,14 @@ variable "dependency_ids" {
   default = {}
 }
 
+variable "namespace_labels" {
+  description = "Labels to apply to the destination namespace managed by Argo CD (requires CreateNamespace=true)."
+  type        = map(string)
+  default = {
+    "istio.io/dataplane-mode" = "ambient"
+  }
+}
+
 #######################
 ## Module variables
 #######################
