@@ -21,6 +21,11 @@ locals {
 
   helm_values = [{
     argo-cd = {
+      global = {
+        networkPolicy = {
+          create = false
+        }
+      }
       dex = {
         enabled = false
       }
