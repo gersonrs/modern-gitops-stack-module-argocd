@@ -1,5 +1,29 @@
 # Changelog
 
+## [5.0.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v4.2.0...v5.0.0) (2026-07-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **chart:** major update of dependencies on argocd chart
+
+### 🚀 New Features
+
+* add namespace_labels variable to all modules ([8027d7a](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/8027d7ada93f214cea13523710654d729e5adeb1))
+* add namespace_labels variable to all modules ([2b571eb](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/2b571ebae86fa168110ab8a54c43b35c5ec43245))
+* adjust code ([d7c2471](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/d7c247116ea37fc0fca6dffd31441269ee8d76fe))
+* adjust code ([9b3c028](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/9b3c0281a52cc9fb437ffae5c1daa351582fbaf7))
+* **chart:** major update of dependencies on argocd chart ([7332190](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/7332190f1d36eb2cbdd33f545522599209502917))
+* **chart:** minor update of dependencies on argocd chart ([d581e93](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/d581e9316c64bf10a80eebdac88a865bdb2a9b63))
+* **chart:** minor update of dependencies on argocd chart ([94a34aa](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/94a34aaf392468d6e53bc5e89f49bf2f06879a30))
+* **chart:** patch update of dependencies on argocd chart ([81959a0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/81959a0850e51affc1bcec96f6f8613b1ba9fd2f))
+
+
+### 🛠️ Build System
+
+* **deps:** bump actions/checkout from 6 to 7 ([037df6d](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/037df6d19d6731769bbc348e60afdcdce7a6aaf8))
+* **deps:** bump actions/checkout from 6 to 7 ([60f11d5](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/60f11d5f600d04ca87d9713b7d0c95207e997caf))
+
 ## [4.2.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v4.1.0...v4.2.0) (2026-05-19)
 
 
