@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.0.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v5.0.0...v6.0.0) (2026-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* provider major bumps and a stricter Terraform baseline; consumers must run `terraform init -upgrade`.
+
+### 🚀 New Features
+
+* upgrade charts, providers and Terraform baseline ([#72](https://github.com/gersonrs/modern-gitops-stack-module-argocd/issues/72)) ([9ab2219](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/9ab22195084e7d50a3cf6d7d7360aabf0bd46099))
+
 ## [5.0.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v4.2.0...v5.0.0) (2026-07-12)
 
 
