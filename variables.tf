@@ -44,9 +44,9 @@ variable "target_revision" {
 }
 
 variable "enable_service_monitor" {
-  description = "Boolean to enable the deployment of a service monitor for Prometheus. This also enables the deployment of default Prometheus rules and Grafana dashboards, which are embedded inside the chart templates and are taken from the official Thanos examples, available https://github.com/thanos-io/thanos/blob/main/examples/alerts/alerts.yaml[here]."
+  description = "Enable Prometheus ServiceMonitor in the Helm chart. Defaults to true because the Prometheus Operator CRDs are installed by the kube-prometheus-stack crds_bootstrap before any application, so every module can be monitored from the first apply. Set it to false on a specific module to opt that application out."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "cluster_issuer" {
