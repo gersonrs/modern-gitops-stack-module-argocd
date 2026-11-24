@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v7.0.0...v7.0.1) (2026-11-24)
+
+
+### 📚 Documentation
+
+* add usage and dependencies to the module documentation ([#76](https://github.com/gersonrs/modern-gitops-stack-module-argocd/issues/76)) ([01109d7](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/01109d7220a5494988178993e7cd56b6a27cd3ec))
+
 ## [7.0.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v6.0.0...v7.0.0) (2026-11-24)
 
 
