@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v6.0.0...v7.0.0) (2026-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* enable the ServiceMonitor by default ([#74](https://github.com/gersonrs/modern-gitops-stack-module-argocd/issues/74))
+
+### 🚀 New Features
+
+* enable the ServiceMonitor by default ([#74](https://github.com/gersonrs/modern-gitops-stack-module-argocd/issues/74)) ([f7f57d7](https://github.com/gersonrs/modern-gitops-stack-module-argocd/commit/f7f57d7eea9fc6c4546d312100696709a9fa1a65))
+
 ## [6.0.0](https://github.com/gersonrs/modern-gitops-stack-module-argocd/compare/v5.0.0...v6.0.0) (2026-11-20)
 
 
